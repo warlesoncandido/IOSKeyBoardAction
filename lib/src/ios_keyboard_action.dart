@@ -4,19 +4,19 @@ import 'package:ios_keyboard_action/src/controller.dart';
 import '../ios_keyboard_action.dart';
 
 class IOSKeyboardAction extends StatefulWidget {
-  final Widget? child;
-  final FocusNode? focusNode;
-  final IOSKeyboardActionType? iosKeyboardActionType;
   final Color? backgroundColor;
   final Color? textColor;
+  final FocusNode focusNode;
+  final IOSKeyboardActionType? iosKeyboardActionType;
+  final Widget? child;
+  final VoidCallback? onTap;
 
-  final Function()? onTap;
   const IOSKeyboardAction({
     Key? key,
-    this.child,
-    this.focusNode,
-    this.iosKeyboardActionType,
+    required this.focusNode,
     this.backgroundColor,
+    this.child,
+    this.iosKeyboardActionType,
     this.onTap,
     this.textColor,
   }) : super(key: key);
@@ -50,9 +50,7 @@ class _IOSKeyboardActionState extends State<IOSKeyboardAction> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Controller.getFunctionAction(
-                          action: widget.iosKeyboardActionType!,
-                          focusNode: widget.focusNode);
+                      Controller.getFunctionAction(action: widget.iosKeyboardActionType!, focusNode: widget.focusNode);
                       if (widget.onTap != null) {
                         widget.onTap!();
                       }
@@ -77,9 +75,9 @@ class _IOSKeyboardActionState extends State<IOSKeyboardAction> {
 
   @override
   void initState() {
-    widget.focusNode!.addListener(() {
+    widget.focusNode.addListener(() {
       if (Platform.isIOS) {
-        if (widget.focusNode!.hasFocus == true) {
+        if (widget.focusNode.hasFocus == true) {
           _overlayEntry = _createOverlayEntry();
           Overlay.of(context)!.insert(_overlayEntry!);
         } else {

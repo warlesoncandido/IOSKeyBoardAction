@@ -31,13 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  FocusNode? focusNode;
-
-  @override
-  void initState() {
-    focusNode = FocusNode();
-    super.initState();
-  }
+  final focusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
               focusNode: focusNode,
               iosKeyboardActionType: IOSKeyboardActionType.send,
               onTap: () {
-                print("pesquisou");
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return const SizedBox(
+                        height: 200,
+                        child: Center(
+                          child: Text('Send pressed'),
+                        ),
+                      );
+                    });
               },
               child: TextField(
                 focusNode: focusNode,
@@ -65,5 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    focusNode.dispose();
+    super.dispose();
   }
 }

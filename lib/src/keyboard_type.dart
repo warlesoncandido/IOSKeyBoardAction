@@ -1,2 +1,3 @@
-///ENUM PARA VALIDAR QUAL O TIPO DE ACÃO DEVE TER.
+
+///Actions available for the user.
 enum IOSKeyboardActionType { done, send, search, next }

@@ -9,7 +9,6 @@ class Controller {
         return "Done";
       case IOSKeyboardActionType.next:
         return "Next";
-
       case IOSKeyboardActionType.search:
         return "Search";
       case IOSKeyboardActionType.send:
@@ -26,7 +25,6 @@ class Controller {
         return focusNode!.unfocus();
       case IOSKeyboardActionType.next:
         return focusNode!.nextFocus();
-
       case IOSKeyboardActionType.search:
         return focusNode!.unfocus();
       case IOSKeyboardActionType.send:

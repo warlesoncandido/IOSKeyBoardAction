@@ -1,6 +1,6 @@
 name: ios_keyboard_action
-description: This package adds an action button above the ios keyboard.
-version: 0.0.3
+description: This package adds an action button above the ios keyboard to your text fields. The current options of buttons are Done, Next, Search and Send.
+version: 0.0.4
 homepage: https://github.com/warlesoncandido/IOSKeyBoardAction
 
 environment:

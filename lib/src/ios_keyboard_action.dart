@@ -11,6 +11,14 @@ class IOSKeyboardAction extends StatefulWidget {
   final Widget? child;
   final VoidCallback? onTap;
 
+  ///Creates a IOSKeyboardAction that can be used to your text field to add a keyboard action above the system keyboard.
+  ///
+  ///The [iosKeyboardActionType] is the type of action that will be performed when the user taps the action button defaults to [IOSKeyboardActionType.done].
+  ///The [backgroundColor] is the background color of the action button defaults to [Color(0xffeeeeed)].
+  ///The [textColor] is the text color of the action button defaults to [Colors.black].
+  ///The [focusNode] is the focus node that will be used to determine if the keyboard is visible.
+  ///The [child] is the child widget that will be wrapped with the IOSKeyboardAction.
+  ///The [onTap] is the callback that will be called when the user taps the action button.
   const IOSKeyboardAction({
     Key? key,
     required this.focusNode,

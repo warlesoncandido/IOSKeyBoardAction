@@ -1,28 +1,7 @@
-# Flutter App Minimizer
+## 0.0.2
 
-This package natively minimize your app on iOS and Android 
+* Update the docs
 
-## Usage
+## 0.0.1
 
-#### Depend on it
-
-Add the package on the pubspec.yaml
-```
-dependencies:
-  flutter_app_minimizer:
-    git:
-      url: git@github.com:grupoboticario/flutter-app-minimizer.git
-      ref: 0.0.2
-```
-
-#### Import it
-
-```dart
-import 'package:flutter_app_minimizer/flutter_app_minimizer.dart';
-```
-
-#### Use it
-
-```dart
-FlutterAppMinimizer.minimize();
-```
+* First release

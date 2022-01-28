@@ -2,7 +2,7 @@
 
 Easyly show an action button for the user above the iOS keyboard.
 
-![Simulator-Screen-Recording-iPhone-13-2022-01-28-at-10 33 11]<img src="https://user-images.githubusercontent.com/36114317/151557005-58a87587-ba01-47c0-aa58-18003b573970.gif" width="400" height="790">
+<img src="https://user-images.githubusercontent.com/36114317/151557005-58a87587-ba01-47c0-aa58-18003b573970.gif" width="360" height="740">
 
 #### Depend on it
 

@@ -2,6 +2,8 @@
 
 Easyly show an action button for the user above the iOS keyboard.
 
+https://user-images.githubusercontent.com/36114317/151556331-b933a156-de5a-4711-8b51-c89a979a8b07.mp4
+
 #### Depend on it
 
 Add the package on the pubspec.yaml

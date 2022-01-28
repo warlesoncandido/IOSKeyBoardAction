@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'IOSKeyboardAction'),
     );
   }
 }
@@ -31,7 +31,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final focusNode = FocusNode();
+  final nextFieldFocus = FocusNode();
+  final previousFieldFocus = FocusNode();
+  final doneFieldFocus = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -40,31 +42,49 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IOSKeyboardAction(
-              focusNode: focusNode,
-              iosKeyboardActionType: IOSKeyboardActionType.send,
-              onTap: () {
-                showModalBottomSheet(
-                    context: context,
-                    builder: (context) {
-                      return const SizedBox(
-                        height: 200,
-                        child: Center(
-                          child: Text('Send pressed'),
-                        ),
-                      );
-                    });
-              },
-              child: TextField(
-                focusNode: focusNode,
-                keyboardType: TextInputType.number,
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              IOSKeyboardAction(
+                label: 'Next field',
+                focusNode: nextFieldFocus,
+                focusActionType: FocusActionType.next,
+                child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: 'Next',
+                  ),
+                  focusNode: nextFieldFocus,
+                  keyboardType: TextInputType.number,
+                ),
               ),
-            ),
-            const TextField(),
-          ],
+              IOSKeyboardAction(
+                label: 'Previous field',
+                focusNode: previousFieldFocus,
+                focusActionType: FocusActionType.previous,
+                child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: 'Previous',
+                  ),
+                  focusNode: previousFieldFocus,
+                  keyboardType: TextInputType.number,
+                ),
+              ),
+              IOSKeyboardAction(
+                focusNode: doneFieldFocus,
+                focusActionType: FocusActionType.done,
+                onTap: () => _showModal(context),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: 'Done',
+                  ),
+                  focusNode: doneFieldFocus,
+                  keyboardType: TextInputType.number,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -72,7 +92,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void dispose() {
-    focusNode.dispose();
+    nextFieldFocus.dispose();
+    doneFieldFocus.dispose();
+    previousFieldFocus.dispose();
     super.dispose();
   }
+
+  _showModal(BuildContext context) => showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return const SizedBox(
+          height: 200,
+          child: Center(
+            child: Text('Done pressed'),
+          ),
+        );
+      });
 }

@@ -1,2 +1,6 @@
-///Actions available for the user.
-enum IOSKeyboardActionType { done, send, search, next }
+///Focus available for the action button.
+enum FocusActionType {
+  done,
+  next,
+  previous,
+}
